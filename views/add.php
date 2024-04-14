@@ -60,7 +60,7 @@
                         <option value='user'>Usuario</option>
                     </select>
                 </div>
-                <div class="input-submit">
+                <div class="input-submit-add">
                     <input type="submit" value="Agregar"/>
                 </div>
             </form>

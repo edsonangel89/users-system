@@ -1,1 +1,1 @@
-<h1>Users resgistry system in PHP</h1>
+<h1>Users registry system in PHP</h1>

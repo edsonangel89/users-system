@@ -33,7 +33,7 @@
                 <div class="input">
                     <input id='login-password' type="password" maxlength=30 required autocomplete='true'/>
                 </div>
-                <div class="input-submit">
+                <div class="input-submit-login">
                     <input type="submit" value="Iniciar sesión"/>
                 </div>
             </form>
