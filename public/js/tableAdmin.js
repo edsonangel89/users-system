@@ -16,12 +16,11 @@ adminTable.addEventListener('load', function(e) {
                 const userId = user.UserID;
                 const row = document.createElement('tr');
                 row.innerHTML =  
-                    `<td>${user.FirstName}</td>
-                    <td>${user.LastName}</td>
-                    <td>${user.Email}</td>
-                    <td>${user.Role}</td>
-                    <td><a href='#' type='button'>Editar</a></td>
-                    <td><a href='http://localhost/users/utils/delete-user.php?email=${userId}' type='button'>Borrar</a></td>
+                    `<td class='data-cell'>${user.FirstName}</td>
+                    <td class='data-cell'>${user.LastName}</td>
+                    <td class='data-cell'>${user.Email}</td>
+                    <td class='data-cell'>${user.Role}</td>
+                    <td class='data-cell'><a href='#' type='button'>Editar</a><a href='http://localhost/users/utils/delete-user.php?email=${userId}' type='button'>Borrar</a></td>
                     `;
                     adminTable.appendChild(row);
                 }  

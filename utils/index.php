@@ -1,3 +1,3 @@
 <?php
-    require '../controllers/sessions-controller.php';
+    require '../controllers/views-controller.php';
 ?>

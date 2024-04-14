@@ -31,12 +31,12 @@ function validate_new_string($data) {
 
 // ADD FORM EMPTY VALIDATION
 
-    if($_POST['add-lname'] || $_POST['add-lname'] || $_POST['add-email'] || $_POST['add-password'] || $_POST['add-role'] ) {
-        if(empty($_POST['add-lname'])) {
+    if($_POST['add-fname'] || $_POST['add-lname'] || $_POST['add-email'] || $_POST['add-password'] || $_POST['add-role'] ) {
+        if(empty($_POST['add-fname'])) {
             ErrorMsgs::msg('Ingrese nombres');
         }
     
-        if(empty($_POST['add-fname'])) {
+        if(empty($_POST['add-lname'])) {
             ErrorMsgs::msg('Ingrese apellidos');
         }
 
@@ -52,7 +52,7 @@ function validate_new_string($data) {
             ErrorMsgs::msg('Ingrese rol de usuario');
         }
 
-        $firstname = validate_new_string($_POST['add-lname']);
+        $firstname = validate_new_string($_POST['add-fname']);
         $lastname = validate_new_string($_POST['add-lname']);
         $username = validate_new_email($_POST['add-email']);
         $password = validate_new_string($_POST['add-password']);

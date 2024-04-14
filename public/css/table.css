@@ -2,25 +2,45 @@
     margin: 0;
     box-sizing: border-box;
 }
+header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
 nav {
     width: 100%;
     display: flex;
     padding: 0.7rem;
-    border: solid black 1px;
+    /*border: solid black 1px;*/
 }
 .navbar {
     display: flex;
     width: 50%;
+    /*border: solid black 1px;*/
 }
 .navbar-left {
     justify-content: start;
+    /*border: solid black 1px;*/
+    display: flex;
+    
 }
 .navbar-right {
     justify-content: end;
+    /*border: solid black 1px;*/
+    /*background-color: blue;*/
+}
+p {
+    margin: 0.5rem 2rem;
+    color: #9600ff;
 }
 a {
     text-decoration: none;
-    color: #F72585;
+    color: #4900ff;
+    margin: 0.5rem 1.2rem;
+}
+a:hover {
+    color: #ff00c1;
 }
 table {
     width: 100%;
@@ -32,15 +52,45 @@ table {
 }
 tr {
     display: grid;
-    grid-template-columns: 16% 16% 16% 16% 16% 16%;
+    grid-template-columns: 25% 25% 25% 5% 20%;
+}
+.data-cell {
+    text-wrap: wrap;
 }
 
 @media (max-width: 768px) {
-
+    p, a {
+        font-size: 1.3rem;
+    }
+    main {
+        margin-top: 4.4rem;
+    }
+    td {
+        padding: 0.8rem;
+        font-size: 1.1rem;
+    }
 }
 @media (min-width: 768px) and (max-width: 1280px) {
-    
+    p, a {
+        font-size: 1.5rem;
+    }
+    main {
+        margin-top: 4.4rem;
+    }
+    td {
+        padding: 0.8rem;
+        font-size: 1.3rem;
+    }
 }
 @media (min-width: 1280px) {
-    
+    p, a {
+        font-size: 1.5rem;
+    }
+    main {
+        margin-top: 4.4rem;
+    }
+    td {
+        padding: 0.8rem;
+        font-size: 1.5rem;
+    }
 }
