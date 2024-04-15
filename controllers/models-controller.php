@@ -83,7 +83,7 @@
             }
         }
         
-        public static function get_data($usr) {
+        public static function get_user($usr) {
             $serverdb = 'localhost';
             $user = 'root';
             $password = '';

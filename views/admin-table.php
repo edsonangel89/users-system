@@ -21,7 +21,7 @@
     <meta http-equiv='referrer' content='no-referrer' >
     <meta http-equiv='Feature-Policy' content="geolocation 'self'" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel='stylesheet' href='../public/css/table.css'/>
+    <link rel='stylesheet' href='../public/css/table.css'/> <!--href='../public/css/table.css'-->
     <title>Usuarios</title>
 </head>
 <body>
@@ -41,9 +41,9 @@
             <table>
                 <thead>
                     <tr>
-                        <td>Nombres</td>
-                        <td>Apellidos</td>
-                        <td>Correo</td>
+                        <td>Nombre</td>
+                        <td>Apellido</td>
+                        <td>Correo electronico</td>
                         <td>Rol</td>
                     </tr>
                 </thead>

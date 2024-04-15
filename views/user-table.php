@@ -28,7 +28,7 @@
     <header>
         <nav>
             <div class="navbar navbar-left">
-                <p><?php echo 'Hola ' . $test?></p>
+                <p><?php echo 'Hola ' . $user?></p>
             </div>
             <div class="navbar navbar-right">
                 <a href="../views/add.php"><span class="material-symbols-outlined">person_add</span></a>
@@ -43,7 +43,7 @@
                     <tr>
                         <td>Nombres</td>
                         <td>Apellido</td>
-                        <td>Correo</td>
+                        <td>Correo electronico</td>
                         <td>Rol</td>
                     </tr>
                 </thead>

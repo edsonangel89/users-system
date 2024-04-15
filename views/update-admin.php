@@ -1,4 +1,6 @@
 <?php
+    include '../utils/get-user.php';
+
     session_start();
     if(!$_SESSION) {
         header('Location: ../index.php');
@@ -7,7 +9,10 @@
         if($_SESSION['role'] != 'admin') {
             header('Location: ../index.php');
         }
-        $user = $_SESSION['user'];
+        if(isset($_GET['email'])) {
+            $email = $_GET['email'];
+            $user_data = user($email);
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -31,42 +36,52 @@
                     <label>Nombre(s)</label>
                 </div>
                 <div class="input">
-                    <input id='admin-update-fname' type="text"/>
+                    <input id='admin-update-fname' type="text" value='<?php echo $user_data['FirstName']?>'/>
                 </div>
                 <div class="label">
                     <label>Apellido(s)</label>
                 </div>
                 <div class="input">
-                    <input id='admin-update-lname' type="text"/>
+                    <input id='admin-update-lname' type="text" value='<?php echo $user_data['LastName']?>'/>
                 </div>
                 <div class="label">
                     <label>Correo electrónico</label>
                 </div>
                 <div class="input">
-                    <input id='admin-update-email' type="email"/>
+                    <input id='admin-update-email' type="email" value='<?php echo $user_data['Email']?>'/>
                 </div>
                 <div class="label">
                     <label>Contraseña</label>
                 </div>
                 <div class="input">
-                    <input id='admin-update-password' type="password"/>
+                    <input id='admin-update-password' type="password" value='<?php echo $user_data['Password']?>'/>
                 </div>
                 <div class="label">
                     <label>Confirmar contraseña</label>
                 </div>
                 <div class="input">
-                    <input id='admin-update-confirm-password' type="password"/>
+                    <input id='admin-update-confirm-password' type="password" value='<?php echo $user_data['Password']?>'/>
                 </div>
                 <div class="label">
                     <label>Rol</label>
                 </div>
                 <div class="input">
                     <select id='admin-update-role'>
-                        <option value='admin'>Administrador</option>
-                        <option value='user'>Usuario</option>
+                        <?php
+                            if($user_data['Role'] == 'admin') { 
+                                echo "
+                                <option value='admin'>Administrador</option>
+                                <option value='user'>Usuario</option>";
+                            }
+                            elseif ($user_data['Role'] == 'user') {
+                                echo "
+                                <option value='user'>Usuario</option>
+                                <option value='admin'>Administrador</option>";
+                            }
+                        ?>
                     </select>
                 </div>
-                <div class="input-submit">
+                <div class="input-submit-add">
                     <input type="submit" value="Actualizar"/>
                 </div>
             </form>

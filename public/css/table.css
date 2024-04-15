@@ -7,11 +7,13 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
+    
 }
 nav {
     width: 100%;
     display: flex;
     padding: 0.7rem;
+    background-color: white;
     /*border: solid black 1px;*/
 }
 .navbar {
@@ -54,20 +56,68 @@ tr {
     display: grid;
     grid-template-columns: 25% 25% 25% 5% 20%;
 }
+tbody td {
+    border: solid lightgray 1px;
+}
+td {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .data-cell {
     text-wrap: wrap;
 }
-
-@media (max-width: 768px) {
+@media (max-width: 280px) {
     p, a {
-        font-size: 1.3rem;
+        font-size: 0.8rem;
     }
     main {
         margin-top: 4.4rem;
     }
+    tr {
+        grid-template-columns: 25% 25% 25% 5% 20%;
+    }
+    thead td {
+        font-size: 0.6rem;/*0.6rem*/
+    }
+    tbody a {
+        font-size: 0.4rem;/*0.3rem*/
+    }
     td {
-        padding: 0.8rem;
-        font-size: 1.1rem;
+        /*padding: 0.8rem;*/
+        font-size: 0.4rem;/*0.4rem*/
+        /*border: solid black 1px;*/
+    }
+    td.user-btn {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (min-width: 280px) and (max-width: 768px) {
+    p, a {
+        font-size: 1rem;
+    }
+    main {
+        margin-top: 4.7rem;
+    }
+    tr {
+        grid-template-columns: 25% 25% 25% 5% 20%;
+    }
+    thead td {
+        font-size: 1rem;
+    }
+    tbody a {
+        font-size: 0.8rem;
+    }
+    td {
+        /*padding: 0.8rem;*/
+        font-size: 0.7rem;
+        /*border: solid black 1px;*/
+    }
+    td.user-btn {
+        display: flex;
+        flex-direction: column;
     }
 }
 @media (min-width: 768px) and (max-width: 1280px) {
@@ -77,9 +127,23 @@ tr {
     main {
         margin-top: 4.4rem;
     }
+    tr {
+        grid-template-columns: 20% 20% 25% 15% 20%;
+    }
+    thead td {
+        font-size: 1.5rem;
+    }
+    tbody a {
+        font-size: 1rem;
+    }
     td {
-        padding: 0.8rem;
-        font-size: 1.3rem;
+        /*padding: 0.8rem;*/
+        font-size: 1rem;
+        /*border: solid black 1px;*/
+    }
+    td.user-btn {
+        display: flex;
+        flex-direction: column;
     }
 }
 @media (min-width: 1280px) {
@@ -89,8 +153,19 @@ tr {
     main {
         margin-top: 4.4rem;
     }
-    td {
-        padding: 0.8rem;
+    thead td {
         font-size: 1.5rem;
+    }
+    tbody a {
+        font-size: 1rem;
+    }
+    td {
+        /*padding: 0.8rem;*/
+        font-size: 1rem;
+        /*border: solid black 1px;*/
+    }
+    td.user-btn {
+        display: flex;
+        flex-direction: row;
     }
 }

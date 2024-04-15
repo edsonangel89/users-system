@@ -1,7 +1,18 @@
 <?php
+    include '../utils/get-user.php';
+
     session_start();
     if(!$_SESSION) {
         header('Location: ../index.php');
+    }
+    else {
+        if($_SESSION['role'] != 'user') {
+            header('Location: ../index.php');
+        }
+        if(isset($_GET['email'])) {
+            $email = $_GET['email'];
+            $user_data = user($email);
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -25,21 +36,21 @@
                     <label>Nombre(s)</label>
                 </div>
                 <div class="input">
-                    <input id='user-update-fname' type="text"/>
+                    <input id='user-update-fname' type="text" value='<?php echo $user_data['FirstName']?>'/>
                 </div>
                 <div class="label">
                     <label>Apellido(s)</label>
                 </div>
                 <div class="input">
-                    <input id='user-update-lname' type="text"/>
+                    <input id='user-update-lname' type="text" value='<?php echo $user_data['LastName']?>'/>
                 </div>
                 <div class="label">
                     <label>Correo electrónico</label>
                 </div>
                 <div class="input">
-                    <input id='user-update-email' type="email"/>
+                    <input id='user-update-email' type="email" value='<?php echo $user_data['Email']?>'/>
                 </div>
-                <div class="input-submit">
+                <div class="input-submit-login">
                     <input type="submit" value="Actualizar"/>
                 </div>
             </form>

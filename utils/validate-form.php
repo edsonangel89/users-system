@@ -62,7 +62,7 @@
         
         $res = ModelDbConnection::login($username, $password);
         if($res) {
-            $get_data = ModelDbConnection::get_data($username);
+            $get_data = ModelDbConnection::get_user($username);
             if(verifier($get_data['Password'], $password) && $username == $get_data['Email']) {
                 session_start();
                 $_SESSION['user'] = $get_data['FirstName'];
