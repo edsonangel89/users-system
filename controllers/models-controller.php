@@ -64,18 +64,19 @@
             }
         }
 
-        public static function delete($email) {
+        public static function delete_user($id) {
             $serverdb = 'localhost';
             $user = 'root';
             $password = '';
             $dbname = 'users_database';
             $dbtable = 'users';
-            $sql_del = "SELECT FROM $dbtable WHERE Email = $email";
+            $sql_del = "DELETE FROM $dbtable WHERE UserID = $id";
             try{
                 $conn = new mysqli($serverdb, $user, $password, $dbname);
-                $conn->query($sql_del);
+                if($conn->query($sql_del)) {
+                    return TRUE;
+                }
                 $conn->close();
-                return TRUE;
             }
             catch(mysqli_sql_exception $e) {
                 ErrorMsgs::msg('Usuario no existe'); 
@@ -84,6 +85,30 @@
         }
         
         public static function get_user($usr) {
+            $serverdb = 'localhost';
+            $user = 'root';
+            $password = '';
+            $dbname = 'users_database';
+            $dbtable = 'users';
+            try {
+                $conn = new mysqli($serverdb, $user, $password, $dbname);
+                $log = $conn->query("SELECT * FROM $dbtable WHERE UserID = '$usr'");
+                if($log->num_rows > 0) {
+                    $result = $log->fetch_assoc();
+                    return $result;    
+                }
+                else {
+                    ErrorMsgs::msg('Usuario no encontrado');
+                    exit;
+                }
+            }
+            catch(mysqli_sql_exception $e) {
+                ErrorMsgs::msg(e->getMessage());
+                exit;
+            }
+        }
+
+        public static function get_user_email($usr) {
             $serverdb = 'localhost';
             $user = 'root';
             $password = '';
@@ -101,7 +126,7 @@
                     exit;
                 }
             }
-            catch(mysqli_sql_excepction $e) {
+            catch(mysqli_sql_exception $e) {
                 ErrorMsgs::msg(e->getMessage());
                 exit;
             }
@@ -116,7 +141,7 @@
 
             try {
                 $conn = new mysqli($serverdb, $user, $password, $dbname);
-                $log = $conn->query("SELECT FirstName, LastName, Email, Role FROM $dbtable ");
+                $log = $conn->query("SELECT UserID, FirstName, LastName, Email, Role FROM $dbtable ");
                 if($log->num_rows > 0) {
                     //$result = $log->fetch_assoc();
                     $users = [];
@@ -130,59 +155,91 @@
                     exit;
                 }
             }
-            catch(mysqli_sql_excepction $e) {
-                ErrorMsgs::msg(e->getMessage());
+            catch(mysqli_sql_exception $e) {
+                ErrorMsgs::msg('Error al consultar usuarios');
                 exit;
             }
         }
-    }
-    
 
-        /*public static function admin_update($fname, $lname, $email, $pass, $role) {
+        public static function admin_update($id, $fname, $lname, $email, $pass, $role) {
+            //include '../utils/get-user.php';
             $serverdb = 'localhost';
             $user = 'root';
             $password = '';
             $dbname = 'users_database';
             $dbtable = 'users';
-            try{
-                $hashed_pass =  hasher($password);
-                $conn = new PDO("mysql:host=$serverdb;dbname=$dbname", $user, $password);
-                $sql_defuser = "INSERT INTO $dbtable(
-                    FirstName,
-                    LastName,
-                    Email,
-                    Password,
-                    Role
-                ) VALUES (
-                    $fname,
-                    $lname,
-                    $email,
-                    '$hashed_pass',
-                    $role
-                )";
-                $conn = null;}
-            catch(PDOException $e) {}
-        }*/
-
-        /*public static function user_update($fname, $lname, $email) {
-            $serverdb = 'localhost';
-            $user = 'root';
-            $password = '';
-            $dbname = 'users_database';
-            $dbtable = 'users';
-            try{
-                $hashed_pass =  hasher($password);
-                $conn = new PDO("mysql:host=$serverdb;dbname=$dbname", $user, $password);
-                $sql_defuser = "INSERT INTO users(
-                    FirstName,
-                    LastName,
-                    Email,
-                ) VALUES (
-                    $fname,
-                    $lname,
-                    $email,
-                )";
-                $conn = null;
+            $get = new mysqli($serverdb, $user, $password, $dbname);
+            $log = $get->query("SELECT * FROM $dbtable WHERE UserID = '$id'");
+            if($log->num_rows > 0) {
+                $result = $log->fetch_assoc();    
             }
-            catch(PDOException $e) {}*/
+            $userId = $result['UserID'];
+            $get->close();
+            //return $userId;
+            if(!empty($pass)) {
+                $hashed_pass = hasher($pass);
+                //$hashed_pass = $pass;
+                $sql_update = "UPDATE $dbtable SET
+                FirstName='$fname',
+                LastName='$lname',
+                Email='$email',
+                Password='$hashed_pass',
+                Role='$role' WHERE UserID='$id'
+             ";
+            }
+            else {
+                $sql_update = "UPDATE $dbtable SET
+                FirstName='$fname',
+                LastName='$lname',
+                Email='$email',
+                Role='$role' WHERE UserID='$id'
+             ";
+            }
+            try{
+                $conn = new mysqli($serverdb, $user, $password, $dbname);
+                if($conn->query($sql_update)) {
+                    session_start();
+                    $_SESSION['user'] = $fname;
+                    return TRUE;
+                }
+                $conn->close();
+            }
+            catch(mysqli_sql_exception $e) {
+                ErrorMsgs::msg('Error al actualizar el usuario');
+                exit;
+            }
+        }
+
+        public static function user_update($id, $fname, $lname, $email) {
+            $serverdb = 'localhost';
+            $user = 'root';
+            $password = '';
+            $dbname = 'users_database';
+            $dbtable = 'users';
+            $get = new mysqli($serverdb, $user, $password, $dbname);
+            $log = $get->query("SELECT * FROM $dbtable WHERE UserID = '$id'");
+            if($log->num_rows > 0) {
+                $result = $log->fetch_assoc();    
+            }
+            $userId = $result['UserID'];
+            $get->close();
+            $sql_update = "UPDATE $dbtable SET
+            FirstName='$fname',
+            LastName='$lname',
+            Email='$email' WHERE UserID='$userId'
+            ";
+            try {
+                $conn = new mysqli($serverdb, $user, $password, $dbname);
+                if($conn->query($sql_update)) {
+                    session_start();
+                    $_SESSION['user'] = $fname;
+                    return TRUE;
+                }
+                $conn->close();
+            }
+            catch(mysqli_sql_exception $e) {
+                ErrorMsgs::msg('Error al actualizar usuario, verifique los datos y vuelva a intentar');
+            }
+        }
+    }
 ?>

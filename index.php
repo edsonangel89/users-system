@@ -7,6 +7,5 @@
         fclose($log_file);   
     }
     require 'utils/database-init.php'; 
-    require 'controllers/views-controller.php'
-    
+    require 'controllers/views-controller.php';
 ?>

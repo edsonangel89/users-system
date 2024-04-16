@@ -43,7 +43,7 @@
             $conn_db->close();
         }
         catch(mysqli_sql_exception $e) {
-            //echo json_encode('DB ERROR: ' . $e->getMessage());
+            
         }
     }
     

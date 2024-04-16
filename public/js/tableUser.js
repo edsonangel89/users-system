@@ -1,9 +1,5 @@
 const userTable = document.getElementById('user-table');
-//console.log('test');
-//alert('test');
-//adminTable.addEventListener('load', function(e) {
-    const errorPattern = /Error/;
-    //console.log('test');
+const errorPattern = /Error/;
     fetch('http://localhost/users/utils/get-users.php')
     .then(response => response.json())
     .then(data => {
@@ -13,20 +9,32 @@ const userTable = document.getElementById('user-table');
         }
         else {
             data.forEach(user => {
-                //console.log(user.Email);
-                const userEmail = user.Email;
+                const userId = user.UserID;
                 const row = document.createElement('tr');
-                row.innerHTML =  
-                    `<td class='data-cell'>${user.FirstName}</td>
+                if(userId == '1') {
+                    row.innerHTML =  
+                    `<td class='data-cell'>${user.UserID}</td>
+                    <td class='data-cell'>${user.FirstName}</td>
                     <td class='data-cell'>${user.LastName}</td>
                     <td class='data-cell'>${user.Email}</td>
                     <td class='data-cell'>${user.Role}</td>
-                    <td class='data-cell user-btn'><a href='http://localhost/users/views/update-user.php?email=${userEmail}' type='button'>Editar</a></td>
+                    <td class='data-cell user-btn'></td>
                     `;
                     userTable.appendChild(row);
+                }
+                else {
+                    row.innerHTML =  
+                    `<td class='data-cell'>${user.UserID}</td>
+                    <td class='data-cell'>${user.FirstName}</td>
+                    <td class='data-cell'>${user.LastName}</td>
+                    <td class='data-cell'>${user.Email}</td>
+                    <td class='data-cell'>${user.Role}</td>
+                    <td class='data-cell user-btn'><a href='http://localhost/users/views/update-user.php?usid=${userId}' type='button'>Editar</a></td>
+                    `;
+                    userTable.appendChild(row);
+                }
                 }  
             )
         }
     }
 )
-//})

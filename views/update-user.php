@@ -9,9 +9,9 @@
         if($_SESSION['role'] != 'user') {
             header('Location: ../index.php');
         }
-        if(isset($_GET['email'])) {
-            $email = $_GET['email'];
-            $user_data = user($email);
+        if(isset($_GET['usid'])) {
+            $id = $_GET['usid'];
+            $user_data = user($id);
         }
     }
 ?>
@@ -30,25 +30,31 @@
 </head>
 <body>
     <main>
-       <div id="user-update-form" class="form-container">
+       <div id="user-update-form" class="add-form-container">
             <form id='update-user-form'>
+                <div class="label">
+                    <label>ID</label>
+                </div>
+                <div class="input">
+                    <input id='user-update-id' type="text" value='<?php echo $user_data['UserID']?>' required disabled/>
+                </div>
                 <div class="label">
                     <label>Nombre(s)</label>
                 </div>
                 <div class="input">
-                    <input id='user-update-fname' type="text" value='<?php echo $user_data['FirstName']?>'/>
+                    <input id='user-update-fname' type="text" value='<?php echo $user_data['FirstName']?>' required/>
                 </div>
                 <div class="label">
                     <label>Apellido(s)</label>
                 </div>
                 <div class="input">
-                    <input id='user-update-lname' type="text" value='<?php echo $user_data['LastName']?>'/>
+                    <input id='user-update-lname' type="text" value='<?php echo $user_data['LastName']?>' required/>
                 </div>
                 <div class="label">
                     <label>Correo electrónico</label>
                 </div>
                 <div class="input">
-                    <input id='user-update-email' type="email" value='<?php echo $user_data['Email']?>'/>
+                    <input id='user-update-email' type="email" value='<?php echo $user_data['Email']?>' required/>
                 </div>
                 <div class="input-submit-login">
                     <input type="submit" value="Actualizar"/>

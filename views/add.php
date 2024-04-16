@@ -43,13 +43,13 @@
                     <label>Contraseña</label>
                 </div>
                 <div class="input">
-                    <input id='add-password' type="password" maxlength=30 required/>
+                    <input id='add-password' type="password" maxlength=30 required/><span class='contrasena-alert'>No coinciden las contrenas</span>
                 </div>
                 <div class="label">
                     <label>Confirmar contraseña</label>
                 </div>
                 <div class="input">
-                    <input id='add-confirm-password' type="password" maxlength=30 required/>
+                    <input id='add-confirm-password' type="password" maxlength=30 required/><span class='contrasena-alert'>No coinciden las contrenas</span>
                 </div>
                 <div class="label">
                     <label>Rol</label>
