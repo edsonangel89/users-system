@@ -67,7 +67,6 @@ updateAdminForm.addEventListener('submit', function(e) {
 })
 
 updateAdminCheckbox.addEventListener('change', function (e) {
-    console.log(updateAdminCheckbox.checked);
     if(updateAdminCheckbox.checked == true) {
         updateAdminPassword.removeAttribute('disabled');
         updateConfirmPassword.removeAttribute('disabled');

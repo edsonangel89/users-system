@@ -143,7 +143,6 @@
                 $conn = new mysqli($serverdb, $user, $password, $dbname);
                 $log = $conn->query("SELECT UserID, FirstName, LastName, Email, Role FROM $dbtable ");
                 if($log->num_rows > 0) {
-                    //$result = $log->fetch_assoc();
                     $users = [];
                     while($row = $log->fetch_assoc()) {
                         $users[] = $row;
@@ -162,7 +161,6 @@
         }
 
         public static function admin_update($id, $fname, $lname, $email, $pass, $role) {
-            //include '../utils/get-user.php';
             $serverdb = 'localhost';
             $user = 'root';
             $password = '';
@@ -175,10 +173,8 @@
             }
             $userId = $result['UserID'];
             $get->close();
-            //return $userId;
             if(!empty($pass)) {
                 $hashed_pass = hasher($pass);
-                //$hashed_pass = $pass;
                 $sql_update = "UPDATE $dbtable SET
                 FirstName='$fname',
                 LastName='$lname',

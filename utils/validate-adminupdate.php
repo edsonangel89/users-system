@@ -7,6 +7,7 @@
         $email = trim($email);
         $email = stripcslashes($email);
         $email = htmlspecialchars($email);
+        $email = strtolower($email);
         if(preg_match('/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/', $email)) {
             return $email;
         }
