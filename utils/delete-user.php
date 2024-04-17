@@ -1,11 +1,11 @@
 <?php
-    include '../controllers/models-controller.php'
+    include '../controllers/models-controller.php';
 
-    if($_GET['email']) {
-        $email = $_GET['email'];
-        $userdel = ModelDbConnection::delete($email);
+    if($_GET['usid']) {
+        $usid = $_GET['usid'];
+        $userdel = ModelDbConnection::delete_user($usid);
         if($userdel) {
-            echo json_encode('OK');
+            header('Location: ../views/admin-table.php');
         }
     }
     

@@ -41,6 +41,7 @@
             <table>
                 <thead>
                     <tr>
+                        <td>ID</td>
                         <td>Nombres</td>
                         <td>Apellido</td>
                         <td>Correo electronico</td>

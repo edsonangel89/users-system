@@ -32,16 +32,27 @@ input[type='submit'] {
 .input-submit-add input:hover {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
 }
+.contrasena-alert {
+    display: none;
+    color: red;
+    margin-left: 1.2rem;
+}
+.checkbox {
+    color: white;
+    padding: 0.3rem;
+}
 
 @media (max-width: 768px) {
     .form-container {
         width: 95%;
-        height: 20rem;
         margin: 1rem auto;
     }
     .add-form-container {
         width: 95%;
-        height: 45rem;
+        margin: 1rem auto;
+    }
+    .update-form-container {
+        width: 95%;
         margin: 1rem auto;
     }
     .label {
@@ -83,6 +94,16 @@ input[type='submit'] {
         border: none;
         font-size: 1.2rem;
     }
+    .checkbox {
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+    }
+    input[type='checkbox'] {
+        height: 1.5rem;
+        width: 1.5rem;
+        margin-left: 1rem;
+    }
 }
 @media (min-width: 768px) and (max-width: 1280px) {
     
@@ -91,6 +112,10 @@ input[type='submit'] {
         margin: 1rem auto;
     }
     .add-form-container {
+        width: 65%;
+        margin: 1rem auto;
+    }
+    .update-form-container {
         width: 65%;
         margin: 1rem auto;
     }
@@ -140,6 +165,10 @@ input[type='submit'] {
         margin: 1rem auto;
     }
     .add-form-container {
+        width: 40%;
+        margin: 1rem auto;
+    }
+    .update-form-container {
         width: 40%;
         margin: 1rem auto;
     }

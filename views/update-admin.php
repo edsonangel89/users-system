@@ -9,9 +9,9 @@
         if($_SESSION['role'] != 'admin') {
             header('Location: ../index.php');
         }
-        if(isset($_GET['email'])) {
-            $email = $_GET['email'];
-            $user_data = user($email);
+        if(isset($_GET['usid'])) {
+            $id = $_GET['usid'];
+            $user_data = user($id);
         }
     }
 ?>
@@ -30,37 +30,47 @@
 </head>
 <body>
     <main>
-        <div id="admin-update-form" class="form-container">
+        <div id="admin-update-form" class="update-form-container">
             <form id='update-admin-form'>
+                <div class="label">
+                    <label>ID</label>
+                </div>
+                <div class="input">
+                    <input id='admin-update-id' type="text" value='<?php echo $user_data['UserID']?>' required disabled/>
+                </div>
                 <div class="label">
                     <label>Nombre(s)</label>
                 </div>
                 <div class="input">
-                    <input id='admin-update-fname' type="text" value='<?php echo $user_data['FirstName']?>'/>
+                    <input id='admin-update-fname' type="text" value='<?php echo $user_data['FirstName']?>' required/>
                 </div>
                 <div class="label">
                     <label>Apellido(s)</label>
                 </div>
                 <div class="input">
-                    <input id='admin-update-lname' type="text" value='<?php echo $user_data['LastName']?>'/>
+                    <input id='admin-update-lname' type="text" value='<?php echo $user_data['LastName']?>' required/>
                 </div>
                 <div class="label">
                     <label>Correo electrónico</label>
                 </div>
                 <div class="input">
-                    <input id='admin-update-email' type="email" value='<?php echo $user_data['Email']?>'/>
+                    <input id='admin-update-email' type="email" value='<?php echo $user_data['Email']?>' required/>
+                </div>
+                <div class="checkbox">
+                    <label>Cambiar contrasena</label>
+                    <input id='admin-update-checkbox' type="checkbox"/>
                 </div>
                 <div class="label">
-                    <label>Contraseña</label>
+                    <label>Contraseña</label><span class='contrasena-alert'>No coinciden las contrenas</span>
                 </div>
                 <div class="input">
-                    <input id='admin-update-password' type="password" value='<?php echo $user_data['Password']?>'/>
+                    <input id='admin-update-password' type="password" required disabled/>
                 </div>
                 <div class="label">
-                    <label>Confirmar contraseña</label>
+                    <label>Confirmar contraseña</label><span class='contrasena-alert'>No coinciden las contrenas</span>
                 </div>
                 <div class="input">
-                    <input id='admin-update-confirm-password' type="password" value='<?php echo $user_data['Password']?>'/>
+                    <input id='admin-update-confirm-password' type="password" required disabled/>
                 </div>
                 <div class="label">
                     <label>Rol</label>
