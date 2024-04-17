@@ -35,7 +35,7 @@ updateUserForm.addEventListener('submit', function(e) {
             alert(err);
         }
         else {
-            window.location.href = '/users/views/user-table.php';
+            window.location.href = './index.php';
         }
     })
 })

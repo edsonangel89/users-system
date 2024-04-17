@@ -196,6 +196,12 @@
                 if($conn->query($sql_update)) {
                     session_start();
                     $_SESSION['user'] = $fname;
+                    if($role == 'admin') {
+                        $_SESSION['role'] = 'admin';
+                    }
+                    elseif($role == 'user') {
+                        $_SESSION['role'] = 'user';
+                    }
                     return TRUE;
                 }
                 $conn->close();

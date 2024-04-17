@@ -61,7 +61,7 @@ updateAdminForm.addEventListener('submit', function(e) {
             alert(err);
         }
         else {
-            window.location.href = '/users/views/admin-table.php';
+            window.location.href = './index.php';
         }
     })
 })
