@@ -42,35 +42,35 @@
                     <label>Nombre(s)</label>
                 </div>
                 <div class="input">
-                    <input id='admin-update-fname' type="text" value='<?php echo $user_data['FirstName']?>' required/>
+                    <input id='admin-update-fname' type="text" maxlength='35' value='<?php echo $user_data['FirstName']?>' required/>
                 </div>
                 <div class="label">
                     <label>Apellido(s)</label>
                 </div>
                 <div class="input">
-                    <input id='admin-update-lname' type="text" value='<?php echo $user_data['LastName']?>' required/>
+                    <input id='admin-update-lname' type="text" maxlength='35' value='<?php echo $user_data['LastName']?>' required/>
                 </div>
                 <div class="label">
                     <label>Correo electrónico</label>
                 </div>
                 <div class="input">
-                    <input id='admin-update-email' type="email" value='<?php echo $user_data['Email']?>' required/>
+                    <input id='admin-update-email' type="email" maxlength='35' value='<?php echo $user_data['Email']?>' required/>
                 </div>
                 <div class="checkbox">
                     <label>Cambiar contrasena</label>
-                    <input id='admin-update-checkbox' type="checkbox"/>
+                    <input id='admin-update-checkbox' type="checkbox" />
                 </div>
                 <div class="label">
                     <label>Contraseña</label><span class='contrasena-alert'>No coinciden las contrenas</span>
                 </div>
                 <div class="input">
-                    <input id='admin-update-password' type="password" required disabled/>
+                    <input id='admin-update-password' type="password" maxlength='30' required disabled/>
                 </div>
                 <div class="label">
                     <label>Confirmar contraseña</label><span class='contrasena-alert'>No coinciden las contrenas</span>
                 </div>
                 <div class="input">
-                    <input id='admin-update-confirm-password' type="password" required disabled/>
+                    <input id='admin-update-confirm-password' type="password" maxlength='30' required disabled/>
                 </div>
                 <div class="label">
                     <label>Rol</label>

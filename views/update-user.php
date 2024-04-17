@@ -42,19 +42,19 @@
                     <label>Nombre(s)</label>
                 </div>
                 <div class="input">
-                    <input id='user-update-fname' type="text" value='<?php echo $user_data['FirstName']?>' required/>
+                    <input id='user-update-fname' type="text" maxlength='35' value='<?php echo $user_data['FirstName']?>' required/>
                 </div>
                 <div class="label">
                     <label>Apellido(s)</label>
                 </div>
                 <div class="input">
-                    <input id='user-update-lname' type="text" value='<?php echo $user_data['LastName']?>' required/>
+                    <input id='user-update-lname' type="text" maxlength='35' value='<?php echo $user_data['LastName']?>' required/>
                 </div>
                 <div class="label">
                     <label>Correo electrónico</label>
                 </div>
                 <div class="input">
-                    <input id='user-update-email' type="email" value='<?php echo $user_data['Email']?>' required/>
+                    <input id='user-update-email' type="email" maxlength='35' value='<?php echo $user_data['Email']?>' required/>
                 </div>
                 <div class="input-submit-login">
                     <input type="submit" value="Actualizar"/>
