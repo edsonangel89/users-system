@@ -33,7 +33,7 @@ addForm.addEventListener('submit', function(e) {
     formData.append('add-role', roleValue);
 
     const errorPattern = /Error/;
-    fetch('http://localhost/users/utils/validate-add.php', {
+    fetch('http://localhost/users/controllers/users-controller.php', {
         method: 'POST',
         body: formData
     })

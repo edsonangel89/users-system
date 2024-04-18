@@ -1,5 +1,5 @@
 <?php
-    
+
     class ModelDbConnection {
          
         public static function login($usr, $pass) {
@@ -55,6 +55,7 @@
                 }
                 else {
                     ErrorMsgs::msg('Error al guardar en BD');
+                    exit;
                 }
                 $conn->close();
             }

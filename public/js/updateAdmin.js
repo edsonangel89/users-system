@@ -43,7 +43,7 @@ updateAdminForm.addEventListener('submit', function(e) {
     }
     formData.append('admin-update-role', roleValue);
     
-    fetch('http://localhost/users/utils/validate-adminupdate.php', {
+    fetch('http://localhost/users/controllers/users-controller.php', {
         method: 'POST',
         body: formData
     })

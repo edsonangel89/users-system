@@ -7,10 +7,11 @@ loginForm.addEventListener('submit', function(e) {
     const formData = new FormData();
     const emailValue = inputEmail.value;
     const passwordValue = inputPassword.value;
+    const errorPattern = /Error/;
+
     formData.append('login-email', emailValue);
     formData.append('login-password', passwordValue);
-    const errorPattern = /Error/;
-    fetch('http://localhost/users/utils/validate-form.php', {
+    fetch('http://localhost/users/controllers/users-controller.php', {
         method: 'POST',
         body: formData
     })

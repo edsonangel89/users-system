@@ -1,6 +1,5 @@
 <?php
-    include '../controllers/models-controller.php';
-    include '../utils/error-msgs.php';
+    require '../controllers/users-controller.php';
 
     function user($user_id) {
         $id = $user_id;

@@ -1,6 +1,6 @@
 <?php
-    include '../controllers/models-controller.php';
-    include '../utils/error-msgs.php';
+    require '../models/users-model.php';
+   // require '../utils/error-msgs.php';
 
     if($_SERVER['REQUEST_METHOD'] === 'GET') {
         $users = ModelDbConnection::get_users();

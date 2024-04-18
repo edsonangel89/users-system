@@ -17,7 +17,7 @@
     
     if($_GET['logout'] == 'true') {
         session_destroy();
-        header('Location: ../index.php');
+        header('Location: /users/views/login.php');
     }
 
 ?>

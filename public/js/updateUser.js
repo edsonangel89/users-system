@@ -20,7 +20,7 @@ updateUserForm.addEventListener('submit', function(e) {
 
     const errorPattern = /Error/;
     
-    fetch('http://localhost/users/utils/validate-userupdate.php', {
+    fetch('http://localhost/users/controllers/users-controller.php', {
         method: 'POST',
         body: formData
     })

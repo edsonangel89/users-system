@@ -1,5 +1,5 @@
 <?php
-    include '../controllers/models-controller.php';
+    require '../models/users-model.php';
 
     if($_GET['usid']) {
         $usid = $_GET['usid'];
