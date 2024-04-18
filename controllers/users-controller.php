@@ -4,7 +4,7 @@
     require '../utils/hash.php';
     require '../utils/error-msgs.php';
 
-    // LOGIN FORM VALIDATION
+    //////////////////////////////////// LOGIN CONTROLLER ///////////////////////////////////////////////
 
     if(isset($_POST['login-email']) && isset($_POST['login-password'])) {
 
@@ -34,6 +34,8 @@
             }    
         }
     }
+
+    /////////////////////////// ADD NEW USER CONTROLLER ///////////////////////////////////////////////
 
     if (isset($_POST['add-fname']) || isset($_POST['add-lname']) || isset($_POST['add-email']) || isset($_POST['add-password']) || isset($_POST['add-role']) ) {
 
@@ -71,6 +73,8 @@
             ErrorMsgs::msg('Revisa los datos y vuelve a intentarlo');
         }
     }
+
+    /////////////////////////// UPDATE USERS FROM ADMIN PROFILE CONTROLLER ///////////////////////////////////////////////
 
     if(isset($_POST['admin-update-id']) || isset($_POST['admin-update-fname']) ||  isset($_POST['admin-update-lname']) || isset($_POST['admin-update-email']) || isset($_POST['admin-update-password']) || isset($_POST['admin-update-role']) ) {
 
@@ -118,6 +122,8 @@
         }
     }
 
+    /////////////////////////// UPDATE USER FROM USER PROFILE CONTROLLER ///////////////////////////////////////////////
+
     if (isset($_POST['user-update-id']) || isset($_POST['user-update-fname']) || isset($_POST['user-update-lname']) || isset($_POST['user-update-email']) ) {
 
         if(empty($_POST['user-update-fname'])) {
@@ -150,6 +156,23 @@
             ErrorMsgs::msg('Error al actualizar usuario, verifique los datos y vuelva a intentar');
         }
     }
+
+    /////////////////////////////////////// GET ALL USERS CONTROLLER ///////////////////////////////////////////////////////////
+
+    if($_SERVER['REQUEST_METHOD'] === 'GET') {
+        if(isset($_GET['users'])) {
+            if($_GET['users'] == 'all') {
+                $users = ModelDbConnection::get_users();
+                if($users) {
+                    echo json_encode($users);
+                }
+                else {
+                    ErrorMsgs::msg('Error al cargar usuarios, revise su conexion a intenet');
+                }
+            }
+        }
+    }
+
     exit;
 
 ?>

@@ -1,5 +1,6 @@
 <?php
     include '../utils/get-user.php';
+    require '../models/users-model.php';
 
     session_start();
     if(!$_SESSION) {
@@ -11,7 +12,7 @@
         }
         if(isset($_GET['usid'])) {
             $id = $_GET['usid'];
-            $user_data = user($id);
+            $user_data = ModelDbConnection::get_user($_GET['usid']);
         }
     }
 ?>

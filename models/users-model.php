@@ -1,7 +1,9 @@
 <?php
 
     class ModelDbConnection {
-         
+
+        /////////////////////////////LOGIN////////////////////////////////////////////
+
         public static function login($usr, $pass) {
             $serverdb = 'localhost';
             $user = 'root';
@@ -25,6 +27,8 @@
                 exit;
             }
         }
+
+        /////////////////////////////CREATE USER////////////////////////////////////////////
 
         public static function create($fname, $lname, $email, $pass, $role) {
             $serverdb = 'localhost';
@@ -65,6 +69,8 @@
             }
         }
 
+        /////////////////////////////DELETE USER////////////////////////////////////////////
+
         public static function delete_user($id) {
             $serverdb = 'localhost';
             $user = 'root';
@@ -84,6 +90,8 @@
                 exit;
             }
         }
+
+        /////////////////////////////GET USER////////////////////////////////////////////
         
         public static function get_user($usr) {
             $serverdb = 'localhost';
@@ -109,6 +117,8 @@
             }
         }
 
+        /////////////////////////////GET CURRENT USER EMAIL////////////////////////////////////////////
+
         public static function get_user_email($usr) {
             $serverdb = 'localhost';
             $user = 'root';
@@ -132,6 +142,8 @@
                 exit;
             }
         }
+
+        /////////////////////////////GET ALL USERS////////////////////////////////////////////
 
         public static function get_users() {
             $serverdb = 'localhost';
@@ -160,6 +172,8 @@
                 exit;
             }
         }
+
+        /////////////////////////////UPDATE USER FROM ADMIN PROFILE////////////////////////////////////////////
 
         public static function admin_update($id, $fname, $lname, $email, $pass, $role) {
             $serverdb = 'localhost';
@@ -212,6 +226,8 @@
                 exit;
             }
         }
+
+        /////////////////////////////UPDATE USER FROM USER PROFILE////////////////////////////////////////////
 
         public static function user_update($id, $fname, $lname, $email) {
             $serverdb = 'localhost';

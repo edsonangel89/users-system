@@ -1,4 +1,7 @@
 <?php
+
+    //require '../controllers/users-controller.php';
+
     session_start();
 
     if($_SESSION) {

@@ -1,6 +1,6 @@
 const adminTable = document.getElementById('admin-table');
     const errorPattern = /Error/;
-    fetch('http://localhost/users/utils/get-users.php')
+    fetch('http://localhost/users/controllers/users-controller.php?users=all')
     .then(response => response.json())
     .then(data => {
         if(errorPattern.test(data)) {
