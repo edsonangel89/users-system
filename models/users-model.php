@@ -2,7 +2,7 @@
 
     class ModelDbConnection {
 
-        /////////////////////////////LOGIN////////////////////////////////////////////
+        ///////////////////////////// LOGIN USER ////////////////////////////////////////////
 
         public static function login($usr, $pass) {
             $serverdb = 'localhost';
@@ -210,13 +210,8 @@
                 $conn = new mysqli($serverdb, $user, $password, $dbname);
                 if($conn->query($sql_update)) {
                     session_start();
-                    $_SESSION['user'] = $fname;
-                    if($role == 'admin') {
-                        $_SESSION['role'] = 'admin';
-                    }
-                    elseif($role == 'user') {
-                        $_SESSION['role'] = 'user';
-                    }
+                    $_SESSION['user'] = ($_SESSION['user'] != $fname) ? $fname : $_SESSION['user'];
+                    $_SESSION['role'] = ($_SESSION['role'] == 'admin' && $role == 'admin') ? 'admin' : 'user';
                     return TRUE;
                 }
                 $conn->close();

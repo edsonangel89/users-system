@@ -173,6 +173,18 @@
         }
     }
 
-    exit;
+    if(isset($_GET['usid'])) {
+        $usid = $_GET['usid'];
+        $userdel = ModelDbConnection::delete_user($usid);
+        if($userdel) {
+            header('Location: ../views/admin-table.php');
+        }
+    }
+
+    function get_user_by_id($usid) {
+        $id = $usid;
+        $user = ModelDbConnection::get_user($id);
+        return $user;
+    }
 
 ?>

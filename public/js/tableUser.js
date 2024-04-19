@@ -29,7 +29,7 @@ const errorPattern = /Error/;
                     <td class='data-cell'>${user.LastName}</td>
                     <td class='data-cell'>${user.Email}</td>
                     <td class='data-cell'>${user.Role}</td>
-                    <td class='data-cell user-btn'><a href='http://localhost/users/views/update-user.php?usid=${userId}' type='button'>Editar</a></td>
+                    <td class='data-cell user-btn'><a href='http://localhost/users/views/update-user.php?get-user=${userId}' type='button'>Editar</a></td>
                     `;
                     userTable.appendChild(row);
                 }

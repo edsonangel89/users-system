@@ -1,5 +1,5 @@
 <?php
-    require '../models/users-model.php';
+    require '../controllers/users-controller.php';
     
     session_start();
     if(!$_SESSION) {
@@ -9,9 +9,9 @@
         if($_SESSION['role'] != 'admin') {
             header('Location: ../index.php');
         }
-        if(isset($_GET['usid'])) {
-            $id = $_GET['usid'];
-            $user_data = ModelDbConnection::get_user($_GET['usid']);
+        if(isset($_GET['get-user'])) {
+            $id = $_GET['get-user'];
+            $user_data = get_user_by_id($id);
         }
     }
 ?>

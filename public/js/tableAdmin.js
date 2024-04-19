@@ -29,7 +29,7 @@ const adminTable = document.getElementById('admin-table');
                     <td class='data-cell'>${user.LastName}</td>
                     <td class='data-cell'>${user.Email}</td>
                     <td class='data-cell'>${user.Role}</td>
-                    <td class='data-cell user-btn'><a href='http://localhost/users/views/update-admin.php?usid=${userId}' type='button'>Editar</a><a href='http://localhost/users/utils/delete-user.php?usid=${userId}' type='button'>Borrar</a></td>
+                    <td class='data-cell user-btn'><a href='http://localhost/users/views/update-admin.php?get-user=${userId}' type='button'>Editar</a><a href='http://localhost/users/controllers/users-controller.php?usid=${userId}' type='button'>Borrar</a></td>
                     `;
                     adminTable.appendChild(row);
                 }
