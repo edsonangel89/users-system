@@ -28,7 +28,7 @@
             }
         }
 
-        /////////////////////////////CREATE USER////////////////////////////////////////////
+        ///////////////////////////// CREATE USER ////////////////////////////////////////////
 
         public static function create($fname, $lname, $email, $pass, $role) {
             $serverdb = 'localhost';
@@ -69,7 +69,7 @@
             }
         }
 
-        /////////////////////////////DELETE USER////////////////////////////////////////////
+        ///////////////////////////// DELETE USER ////////////////////////////////////////////
 
         public static function delete_user($id) {
             $serverdb = 'localhost';
@@ -91,7 +91,7 @@
             }
         }
 
-        /////////////////////////////GET USER////////////////////////////////////////////
+        ///////////////////////////// GET USER ////////////////////////////////////////////
         
         public static function get_user($usr) {
             $serverdb = 'localhost';
@@ -117,7 +117,7 @@
             }
         }
 
-        /////////////////////////////GET CURRENT USER EMAIL////////////////////////////////////////////
+        ///////////////////////////// GET CURRENT USER EMAIL ////////////////////////////////////////////
 
         public static function get_user_email($usr) {
             $serverdb = 'localhost';
@@ -143,7 +143,7 @@
             }
         }
 
-        /////////////////////////////GET ALL USERS////////////////////////////////////////////
+        ///////////////////////////// GET ALL USERS ////////////////////////////////////////////
 
         public static function get_users() {
             $serverdb = 'localhost';
@@ -154,7 +154,7 @@
 
             try {
                 $conn = new mysqli($serverdb, $user, $password, $dbname);
-                $log = $conn->query("SELECT UserID, FirstName, LastName, Email, Role FROM $dbtable ");
+                $log = $conn->query("SELECT UserID, FirstName, LastName, Email, Role FROM $dbtable ORDER BY UserID");
                 if($log->num_rows > 0) {
                     $users = [];
                     while($row = $log->fetch_assoc()) {
@@ -173,7 +173,7 @@
             }
         }
 
-        /////////////////////////////UPDATE USER FROM ADMIN PROFILE////////////////////////////////////////////
+        ///////////////////////////// UPDATE USER FROM ADMIN PROFILE ////////////////////////////////////////////
 
         public static function admin_update($id, $fname, $lname, $email, $pass, $role) {
             $serverdb = 'localhost';
@@ -210,8 +210,13 @@
                 $conn = new mysqli($serverdb, $user, $password, $dbname);
                 if($conn->query($sql_update)) {
                     session_start();
-                    $_SESSION['user'] = ($_SESSION['user'] != $fname) ? $fname : $_SESSION['user'];
-                    $_SESSION['role'] = ($_SESSION['role'] == 'admin' && $role == 'admin') ? 'admin' : 'user';
+                    if($_SESSION['id'] == $id) {
+                        $_SESSION['user'] = ($_SESSION['user'] != $fname) ? $fname : $_SESSION['user'];
+                        $_SESSION['role'] = ($_SESSION['role'] == 'admin' && $role == 'admin') ? 'admin' : 'user';
+                    }
+                    
+                    /*$_SESSION['user'] = ($_SESSION['user'] != $fname) ? $fname : $_SESSION['user'];
+                    $_SESSION['role'] = ($_SESSION['role'] == 'admin' && $role == 'admin') ? 'admin' : 'user';*/
                     return TRUE;
                 }
                 $conn->close();
@@ -222,7 +227,7 @@
             }
         }
 
-        /////////////////////////////UPDATE USER FROM USER PROFILE////////////////////////////////////////////
+        ///////////////////////////// UPDATE USER FROM USER PROFILE ////////////////////////////////////////////
 
         public static function user_update($id, $fname, $lname, $email) {
             $serverdb = 'localhost';

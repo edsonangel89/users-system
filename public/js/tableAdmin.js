@@ -1,5 +1,12 @@
 const adminTable = document.getElementById('admin-table');
     const errorPattern = /Error/;
+
+    /*fetch('http://localhost/users/controllers/users-controller.php?users=')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.FirstName);
+    })*/
+
     fetch('http://localhost/users/controllers/users-controller.php?users=all')
     .then(response => response.json())
     .then(data => {

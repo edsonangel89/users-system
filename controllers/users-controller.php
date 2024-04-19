@@ -24,6 +24,7 @@
             $get_data = ModelDbConnection::get_user_email($username);
             if(verifier($get_data['Password'], $password) && $username == $get_data['Email']) {
                 session_start();
+                $_SESSION['id'] = $get_data['UserID'];
                 $_SESSION['user'] = $get_data['FirstName'];
                 $_SESSION['email'] = $get_data['Email'];
                 $_SESSION['role'] = $get_data['Role'];
@@ -176,8 +177,15 @@
     if(isset($_GET['usid'])) {
         $usid = $_GET['usid'];
         $userdel = ModelDbConnection::delete_user($usid);
-        if($userdel) {
-            header('Location: ../views/admin-table.php');
+        session_start();
+        if($_GET['usid'] == $_SESSION['id']) {
+            session_destroy();
+            header('Location: ../index.php');
+        }
+        else {
+            if($userdel) {
+                header('Location: ../views/admin-table.php');
+            }
         }
     }
 

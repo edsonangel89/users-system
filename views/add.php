@@ -40,16 +40,16 @@
                     <input id='add-email' type="email" maxlength=35 required/>
                 </div>
                 <div class="label">
-                    <label>Contraseña</label>
+                    <label>Contraseña</label><span class='contrasena-alert'>No coinciden las contrenas</span>
                 </div>
                 <div class="input">
-                    <input id='add-password' type="password" maxlength=30 required/><span class='contrasena-alert'>No coinciden las contrenas</span>
+                    <input id='add-password' type="password" maxlength=30 required/>
                 </div>
                 <div class="label">
-                    <label>Confirmar contraseña</label>
+                    <label>Confirmar contraseña</label><span class='contrasena-alert'>No coinciden las contrenas</span>
                 </div>
                 <div class="input">
-                    <input id='add-confirm-password' type="password" maxlength=30 required/><span class='contrasena-alert'>No coinciden las contrenas</span>
+                    <input id='add-confirm-password' type="password" maxlength=30 required/>
                 </div>
                 <div class="label">
                     <label>Rol</label>
