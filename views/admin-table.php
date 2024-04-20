@@ -49,6 +49,7 @@
                     </tr>
                 </thead>
                 <tbody id='admin-table'>
+                    <!--<div id="spinner" class="spinner" style="display: none;"></div>style="display: none;"-->
                 </tbody>
             </table>
         </div>
