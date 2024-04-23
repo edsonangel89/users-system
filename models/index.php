@@ -1,3 +1,3 @@
 <?php
-    require '../controllers/views-controller.php';
+    header('Location: ../index.php');
 ?>

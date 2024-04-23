@@ -103,7 +103,7 @@
                 }
             }
             catch(mysqli_sql_exception $e) {
-                ErrorMsgs::msg(e->getMessage());
+                ErrorMsgs::msg('Error al cargar el usuario por identificador');
                 exit;
             }
         }
@@ -126,7 +126,7 @@
                 }
             }
             catch(mysqli_sql_exception $e) {
-                ErrorMsgs::msg(e->getMessage());
+                ErrorMsgs::msg('Error al cargar el usuario por correo');
                 exit;
             }
         }

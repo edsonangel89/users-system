@@ -28,4 +28,5 @@ loginForm.addEventListener('submit', function(e) {
             window.location.href = '/users/index.php';
         }
     })
+    return;
 })
