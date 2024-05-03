@@ -9,7 +9,6 @@
         ///////////////////////////// LOGIN USER ////////////////////////////////////////////
 
         public static function login($usr, $pass) {
-            
             $dbtable = 'users';
             try{
                 $conn = new mysqli(self::$serverdb, self::$user, self::$password, self::$dbname);
@@ -134,7 +133,6 @@
         ///////////////////////////// GET ALL USERS ////////////////////////////////////////////
 
         public static function get_users() {
-            
             $dbtable = 'users';
             try {
                 $conn = new mysqli(self::$serverdb, self::$user, self::$password, self::$dbname);
@@ -152,7 +150,7 @@
                 }
             }
             catch(mysqli_sql_exception $e) {
-                ErrorMsgs::msg('Error al consultar usuarios');
+                ErrorMsgs::msg($e->GetMessage());
                 exit;
             }
         }
@@ -179,6 +177,14 @@
                 Role='$role' WHERE UserID='$id'
              ";
             }
+            elseif (empty($pass) && empty($role)){
+                $hashed_pass = hasher($pass);
+                $sql_update = "UPDATE $dbtable SET
+                FirstName='$fname',
+                LastName='$lname',
+                Email='$email' WHERE UserID='$id'
+             ";
+            }
             else {
                 $sql_update = "UPDATE $dbtable SET
                 FirstName='$fname',
@@ -190,7 +196,7 @@
             try{
                 $conn = new mysqli(self::$serverdb, self::$user, self::$password, self::$dbname);
                 if($conn->query($sql_update)) {
-                    session_start();
+                    //session_start();
                     if($_SESSION['id'] == $id) {
                         $_SESSION['user'] = ($_SESSION['user'] != $fname) ? $fname : $_SESSION['user'];
                         $_SESSION['role'] = ($_SESSION['role'] == 'admin' && $role == 'admin') ? 'admin' : 'user';
@@ -225,7 +231,7 @@
             try {
                 $conn = new mysqli(self::$serverdb, self::$user, self::$password, self::$dbname);
                 if($conn->query($sql_update)) {
-                    session_start();
+                    //session_start();
                     $_SESSION['user'] = $fname;
                     return TRUE;
                 }

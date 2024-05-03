@@ -11,7 +11,7 @@ loginForm.addEventListener('submit', function(e) {
 
     formData.append('login-email', emailValue);
     formData.append('login-password', passwordValue);
-    fetch('http://localhost/users/controllers/users-controller.php', {
+    fetch('http://localhost/system/api/users/login', {
         method: 'POST',
         body: formData
     })
@@ -24,8 +24,8 @@ loginForm.addEventListener('submit', function(e) {
             alert(err);
         }
         else {
-            console.log(data);
-            window.location.href = '/users/index.php';
+            //console.log(data);
+            window.location.href = '/system';
         }
     })
     return;

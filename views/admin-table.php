@@ -1,14 +1,17 @@
 <?php
-    session_start();
-    if(!$_SESSION) {
-        header('Location: ../index.php');
+    //session_start();
+    //$role = 'admin';
+    $role = $_SESSION['role'];
+    /*if(!$_SESSION) {
+        //header('Location: ../index.php');
+        $role = 'admin';
     }
     else {
         if($_SESSION['role'] != 'admin') {
             header('Location: ../index.php');
         }
         $user = $_SESSION['user'];
-    }
+    }*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,39 +24,51 @@
     <meta http-equiv='referrer' content='no-referrer' >
     <meta http-equiv='Feature-Policy' content="geolocation 'self'" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel='stylesheet' href='../public/css/table.css'/>
+    <link rel='stylesheet' href='public/css/table.css'/>
     <title>Usuarios</title>
 </head>
 <body>
     <header>
         <nav>
             <div class="navbar navbar-left">
-                <p><?php echo 'Hola ' . $user;?></p>
+                <p><?php //echo 'Hola ' . $user;?></p>
             </div>
             <div class="navbar navbar-right">
-                <a href="../views/add.php"><span class="material-symbols-outlined">person_add</span></a>
-                <a href="../controllers/views-controller.php?logout=true"><span class="material-symbols-outlined">logout</span></a>
+                <a href="http://localhost/system/add"><span class="material-symbols-outlined">person_add</span></a>
+                <a href="http://localhost/system/api/users/logout"><span class="material-symbols-outlined">logout</span></a>
             </div>
         </nav>
     </header>
     <main>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <td>ID</td>
-                        <td>Nombre</td>
-                        <td>Apellido</td>
-                        <td>Correo electronico</td>
-                        <td>Rol</td>
-                    </tr>
-                </thead>
-                <tbody id='admin-table'>
-                    <!--<div id="spinner" class="spinner" style="display: none;"></div>style="display: none;"-->
-                </tbody>
-            </table>
-        </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nombres</td>
+                    <td>Apellido</td>
+                    <td>Correo electronico</td>
+                    <td>Rol</td>
+                </tr>
+            </thead>
+            <?php
+            if($role == 'admin') {
+                echo "<tbody id='admin-table'></tbody>";
+            }
+            elseif ($role == 'user') {
+                echo "<tbody id='user-table'></tbody>";   
+            }  
+        ?>
+        </table>
+    </div>
     </main>
-    <script src='../public/js/tableAdmin.js'></script>
+    <?php
+        if($role == 'admin') {
+            echo "<script src='public/js/tableAdmin.js'></script>";
+        }
+        elseif ($role == 'user') {
+            echo "<script src='public/js/tableUser.js'></script>";   
+        }  
+    ?>
     </body>
 </html>

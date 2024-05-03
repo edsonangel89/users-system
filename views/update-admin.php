@@ -1,6 +1,8 @@
 <?php
-    require '../controllers/users-controller.php';
-    
+    $role = $_SESSION['role'];
+    echo $role;
+    /*require '../controllers/users-controller.php';
+
     session_start();
     if(!$_SESSION) {
         header('Location: ../index.php');
@@ -13,7 +15,7 @@
             $id = $_GET['get-user'];
             $user_data = get_user_by_id($id);
         }
-    }
+    }*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +27,7 @@
     <meta http-equiv='Strict-Transport-Security' content='max-age=31536000; includeSubDomains; preload' >
     <meta http-equiv='referrer' content='no-referrer' >
     <meta http-equiv='Feature-Policy' content="geolocation 'self'" >
-    <link rel='stylesheet' href='../public/css/form.css'/>
+    <link rel='stylesheet' href='public/css/form.css'/>
     <title>Modificar usuario</title>
 </head>
 <body>

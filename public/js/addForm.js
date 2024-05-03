@@ -33,7 +33,7 @@ addForm.addEventListener('submit', function(e) {
     formData.append('add-role', roleValue);
 
     const errorPattern = /Error/;
-    fetch('http://localhost/users/controllers/users-controller.php', {
+    fetch('http://localhost/system/api/users/create', {
         method: 'POST',
         body: formData
     })
@@ -50,7 +50,7 @@ addForm.addEventListener('submit', function(e) {
             alert(err);
         }
         else {
-            window.location.href = '/users/index.php';
+            window.location.href = '/system';
         }
     })
 })

@@ -13,14 +13,14 @@ updateUserForm.addEventListener('submit', function(e) {
     const lnameValue = inputLname.value;
     const emailValue = inputEmail.value;
 
-    formData.append('user-update-id', idValue);
-    formData.append('user-update-fname', fnameValue);
-    formData.append('user-update-lname', lnameValue);
-    formData.append('user-update-email', emailValue);
+    formData.append('update-id', idValue);
+    formData.append('update-fname', fnameValue);
+    formData.append('update-lname', lnameValue);
+    formData.append('update-email', emailValue);
 
     const errorPattern = /Error/;
     
-    fetch('http://localhost/users/controllers/users-controller.php', {
+    fetch('http://localhost/system/api/users/update', {
         method: 'POST',
         body: formData
     })
@@ -35,7 +35,7 @@ updateUserForm.addEventListener('submit', function(e) {
             alert(err);
         }
         else {
-            window.location.href = './index.php';
+            window.location.href = '/system';
         }
     })
 })

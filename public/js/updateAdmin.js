@@ -30,20 +30,23 @@ updateAdminForm.addEventListener('submit', function(e) {
         return;
     }
     
-    formData.append('admin-update-id', idValue);
-    formData.append('admin-update-fname', fnameValue);
-    formData.append('admin-update-lname', lnameValue);
-    formData.append('admin-update-email', emailValue);
+    formData.append('update-id', idValue);
+    formData.append('update-fname', fnameValue);
+    formData.append('update-lname', lnameValue);
+    formData.append('update-email', emailValue);
     if(updateAdminCheckbox.checked == true) {
+        formData.append('update-password', passwordValue);
+        formData.append('update-confirm-password', confirmPasswordValue);
+    }
+    /*else {
+        updateAdminPassword.value = null;
+        updateConfirmPassword.value = null;
         formData.append('admin-update-password', passwordValue);
         formData.append('admin-update-confirm-password', confirmPasswordValue);
-    }
-    else {
-
-    }
+    }*/
     formData.append('admin-update-role', roleValue);
     
-    fetch('http://localhost/users/controllers/users-controller.php', {
+    fetch('http://localhost/system/api/users/update', {
         method: 'POST',
         body: formData
     })
@@ -61,7 +64,8 @@ updateAdminForm.addEventListener('submit', function(e) {
             alert(err);
         }
         else {
-            window.location.href = './index.php';
+            //console.log(data);
+            window.location.href = '/system';
         }
     })
 })

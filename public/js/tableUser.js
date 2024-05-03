@@ -1,6 +1,6 @@
 const userTable = document.getElementById('user-table');
 const errorPattern = /Error/;
-    fetch('http://localhost/users/controllers/users-controller.php?users=all')
+    fetch('http://localhost/system/api/users')
     .then(response => response.json())
     .then(data => {
         if(errorPattern.test(data)) {
@@ -29,7 +29,7 @@ const errorPattern = /Error/;
                     <td class='data-cell'>${user.LastName}</td>
                     <td class='data-cell'>${user.Email}</td>
                     <td class='data-cell'>${user.Role}</td>
-                    <td class='data-cell user-btn'><a href='http://localhost/users/views/update-user.php?get-user=${userId}' type='button'>Editar</a></td>
+                    <td class='data-cell user-btn'><a href='http://localhost/system/update?get-user=${userId}' type='button'>Editar</a></td>
                     `;
                     userTable.appendChild(row);
                 }

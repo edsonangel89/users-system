@@ -1,8 +1,8 @@
 <?php
-    session_start();
+    /*session_start();
     if(!$_SESSION) {
         header('Location: ../index.php');
-    }
+    }*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
     <meta http-equiv='Strict-Transport-Security' content='max-age=31536000; includeSubDomains; preload' >
     <meta http-equiv='referrer' content='no-referrer' >
     <meta http-equiv='Feature-Policy' content="geolocation 'self'" >
-    <link rel='stylesheet' href='../public/css/form.css'/>
+    <link rel='stylesheet' href='public/css/form.css'/>
     <title>Agregar usuario</title>
 </head>
 <body>
@@ -66,6 +66,6 @@
             </form>
         </div>
     </main>
-    <script src='../public/js/addForm.js'></script>
+    <script src='public/js/addForm.js'></script>
 </body>
 </html>

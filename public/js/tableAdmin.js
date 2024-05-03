@@ -1,7 +1,7 @@
 const adminTable = document.getElementById('admin-table');
 const errorPattern = /Error/;
 
-    fetch('http://localhost/users/controllers/users-controller.php?users=all')
+    fetch('http://localhost/system/api/users')
     .then(response => response.json())
     .then(data => {
         if(errorPattern.test(data)) {
@@ -9,6 +9,7 @@ const errorPattern = /Error/;
             alert(err);
         }
         else {
+            //console.log(data);
             data.forEach(user => {
                 const userId = user.UserID;
                 const row = document.createElement('tr');
@@ -30,7 +31,7 @@ const errorPattern = /Error/;
                     <td class='data-cell'>${user.LastName}</td>
                     <td class='data-cell'>${user.Email}</td>
                     <td class='data-cell'>${user.Role}</td>
-                    <td class='data-cell user-btn'><a href='http://localhost/users/views/update-admin.php?get-user=${userId}' type='button'>Editar</a><a href='http://localhost/users/controllers/users-controller.php?usid=${userId}' type='button'>Borrar</a></td>
+                    <td class='data-cell user-btn'><a href='http://localhost/system/update?get-user=${userId}' type='button'>Editar</a><a href='http://localhost/system/api/users/delete?get-user=${userId}' type='button'>Borrar</a></td>
                     `;
                     adminTable.appendChild(row);
                 }
