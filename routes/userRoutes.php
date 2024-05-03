@@ -1,7 +1,7 @@
 <?php
 
-    require 'controllers/users-controller.php';
-    require 'controllers/views-controller.php';
+    require 'controllers/usersController.php';
+    require 'controllers/viewsController.php';
     
     $view_path = '/' . substr(parse_url(PATH, PHP_URL_PATH), 11);
 
@@ -110,7 +110,6 @@
             call_user_func($user_post_routes['/notfound']);
             exit;
         }
-
     }
 
 ?>

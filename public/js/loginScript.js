@@ -24,7 +24,6 @@ loginForm.addEventListener('submit', function(e) {
             alert(err);
         }
         else {
-            //console.log(data);
             window.location.href = '/system';
         }
     })

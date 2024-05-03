@@ -1,0 +1,13 @@
+@import './main.css';
+
+.page-notfound {
+    margin-top: 3rem;
+    text-align: center;
+}
+.page-notfound a {
+    text-decoration: none;
+    color: #4900ff;
+}
+.page-notfound a:hover {
+    color: #9600ff;
+}

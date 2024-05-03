@@ -1,20 +1,16 @@
 <?php
-    require 'controllers/users-controller.php';
-    $role = $_SESSION['role'];
-    //session_start();
-    //$role = 'user';
-    //$user_data = get_user_by_id(34);
+
+    require 'controllers/usersController.php';
+    
     if(!$_SESSION) {
         header('Location: /system');
     }
     else {
-        /*if($_SESSION['role'] != 'user') {
-            header('Location: /system');
-        }*/
         if(isset($_GET['get-user'])) {
             $id = $_GET['get-user'];
             $user_data = get_user_by_id($id);
         }
+        $role = $_SESSION['role'];
     }
 ?>
 <!DOCTYPE html>

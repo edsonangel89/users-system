@@ -1,6 +1,6 @@
 <?php
 
-    require './controllers/views-controller.php';
+    require './controllers/viewsController.php';
 
     $views_routes = [
         '/log' => 'get_login_form',
@@ -18,17 +18,5 @@
         call_user_func($views_routes['/notfound']);
         exit;
     }
-
-    //echo json_encode($url);
-    //exit;
-
-    /*if(isset($views_routes[$url])) {
-        get_login();
-        //echo json_encode('TEST');
-        //exit;
-    }*/
-
-    echo json_encode('views');
-    exit;
 
 ?>

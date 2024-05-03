@@ -9,7 +9,6 @@ const errorPattern = /Error/;
             alert(err);
         }
         else {
-            //console.log(data);
             data.forEach(user => {
                 const userId = user.UserID;
                 const row = document.createElement('tr');

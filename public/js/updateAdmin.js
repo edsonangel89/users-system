@@ -38,13 +38,7 @@ updateAdminForm.addEventListener('submit', function(e) {
         formData.append('update-password', passwordValue);
         formData.append('update-confirm-password', confirmPasswordValue);
     }
-    /*else {
-        updateAdminPassword.value = null;
-        updateConfirmPassword.value = null;
-        formData.append('admin-update-password', passwordValue);
-        formData.append('admin-update-confirm-password', confirmPasswordValue);
-    }*/
-    formData.append('admin-update-role', roleValue);
+    formData.append('update-role', roleValue);
     
     fetch('http://localhost/system/api/users/update', {
         method: 'POST',

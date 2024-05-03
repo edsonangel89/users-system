@@ -1,17 +1,6 @@
 <?php
-    //session_start();
-    //$role = 'admin';
     $role = $_SESSION['role'];
-    /*if(!$_SESSION) {
-        //header('Location: ../index.php');
-        $role = 'admin';
-    }
-    else {
-        if($_SESSION['role'] != 'admin') {
-            header('Location: ../index.php');
-        }
-        $user = $_SESSION['user'];
-    }*/
+    $user = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +20,7 @@
     <header>
         <nav>
             <div class="navbar navbar-left">
-                <p><?php //echo 'Hola ' . $user;?></p>
+                <p><?php echo 'Hola ' . $user;?></p>
             </div>
             <div class="navbar navbar-right">
                 <a href="http://localhost/system/add"><span class="material-symbols-outlined">person_add</span></a>
@@ -46,8 +35,8 @@
                 <tr>
                     <td>ID</td>
                     <td>Nombres</td>
-                    <td>Apellido</td>
-                    <td>Correo electronico</td>
+                    <td>Apellidos</td>
+                    <td>Correo electrónico</td>
                     <td>Rol</td>
                 </tr>
             </thead>
