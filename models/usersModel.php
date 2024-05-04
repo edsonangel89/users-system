@@ -196,7 +196,6 @@
             try{
                 $conn = new mysqli(self::$serverdb, self::$user, self::$password, self::$dbname);
                 if($conn->query($sql_update)) {
-                    //session_start();
                     if($_SESSION['id'] == $id) {
                         $_SESSION['user'] = ($_SESSION['user'] != $fname) ? $fname : $_SESSION['user'];
                         $_SESSION['role'] = ($_SESSION['role'] == 'admin' && $role == 'admin') ? 'admin' : 'user';
@@ -231,7 +230,6 @@
             try {
                 $conn = new mysqli(self::$serverdb, self::$user, self::$password, self::$dbname);
                 if($conn->query($sql_update)) {
-                    //session_start();
                     $_SESSION['user'] = $fname;
                     return TRUE;
                 }

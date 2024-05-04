@@ -11,7 +11,9 @@
             $user_data = get_user_by_id($id);
         }
         $role = $_SESSION['role'];
+              
     }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,108 +32,108 @@
     <main>
         <?php
             if($role == 'user') {
-            echo "
-                <div id='user-update-form' class='add-form-container'>
-                    <form id='update-user-form'>
-                        <div class='label'>
+            echo '
+                <div id="user-update-form" class="add-form-container">
+                    <form id="update-user-form">
+                        <div class="label">
                             <label>ID</label>
                         </div>
-                        <div class='input'>
-                            <input id='user-update-id' type='text' value=" . $user_data['UserID'] . " required disabled/>
+                        <div class="input">
+                            <input id="user-update-id" type="text" value="' . $user_data['UserID'] . '" required disabled/>
                         </div>
-                        <div class='label'>
+                        <div class="label">
                             <label>Nombre(s)</label>
                         </div>
-                        <div class='input'>
-                            <input id='user-update-fname' type='text' maxlength='35' value=" . $user_data['FirstName'] . " required/>
+                        <div class="input">
+                            <input id="user-update-fname" type="text" maxlength="35" value="' . $user_data['FirstName'] . '" required/>
                         </div>
-                        <div class='label'>
+                        <div class="label">
                             <label>Apellido(s)</label>
                         </div>
-                        <div class='input'>
-                            <input id='user-update-lname' type='text' maxlength='35' value=" . $user_data['LastName'] . " required/>
+                        <div class="input">
+                            <input id="user-update-lname" type="text" maxlength="35" value="' . $user_data['LastName'] . '" required/>
                         </div>
-                        <div class='label'>
+                        <div class="label">
                             <label>Correo electrónico</label>
                         </div>
-                        <div class='input'>
-                            <input id='user-update-email' type='email' maxlength='35' value=" . $user_data['Email'] . " required/>
+                        <div class="input">
+                            <input id="user-update-email" type="email" maxlength="35" value="' . $user_data['Email'] . '" required/>
                         </div>
-                        <div class='input-submit-login'>
-                            <input type='submit' value='Actualizar'/>
+                        <div class="input-submit-login">
+                            <input type="submit" value="Actualizar"/>
                         </div>
                     </form>
-                </div> ";
+                </div> ';
             }
             elseif ($role == 'admin') {
-                echo "
-                    <div id='admin-update-form' class='update-form-container'>
-                        <form id='update-admin-form'>
-                            <div class='label'>
+                echo '
+                    <div id="admin-update-form" class="update-form-container">
+                        <form id="update-admin-form">
+                            <div class="label">
                                 <label>ID</label>
                             </div>
-                            <div class='input'>
-                                <input id='admin-update-id' type='text' value=" . $user_data['UserID'] . " required disabled/>
+                            <div class="input">
+                                <input id="admin-update-id" type="text" value="' . $user_data['UserID'] . '" required disabled/>
                             </div>
-                            <div class='label'>
+                            <div class="label">
                                 <label>Nombre(s)</label>
                             </div>
-                            <div class='input'>
-                                <input id='admin-update-fname' type='text' maxlength='35' value=" . $user_data['FirstName'] . " required/>
+                            <div class="input">
+                                <input id="admin-update-fname" type="text" maxlength="35" value="' . $user_data['FirstName'] . '" required/>
                             </div>
-                            <div class='label'>
+                            <div class="label">
                                 <label>Apellido(s)</label>
                             </div>
-                            <div class='input'>
-                                <input id='admin-update-lname' type='text' maxlength='35' value=" . $user_data['LastName'] . " required/>
+                            <div class="input">
+                                <input id="admin-update-lname" type="text" maxlength="35" value="' . $user_data['LastName'] . '" required/>
                             </div>
-                            <div class='label'>
+                            <div class="label">
                                 <label>Correo electrónico</label>
                             </div>
-                            <div class='input'>
-                                <input id='admin-update-email' type='email' maxlength='35' value=" . $user_data['Email'] . " required/>
+                            <div class="input">
+                                <input id="admin-update-email" type="email" maxlength="35" value="' . $user_data['Email'] . '" required/>
                             </div>
-                            <div class='checkbox'>
+                            <div class="checkbox">
                                 <label>Cambiar contrasena</label>
-                                <input id='admin-update-checkbox' type='checkbox' />
+                                <input id="admin-update-checkbox" type="checkbox" />
                             </div>
-                            <div class='label'>
-                                <label>Contraseña</label><span class='contrasena-alert'>No coinciden las contrenas</span>
+                            <div class="label">
+                                <label>Contraseña</label><span class="contrasena-alert">No coinciden las contrenas</span>
                             </div>
-                            <div class='input'>
-                                <input id='admin-update-password' type='password' maxlength='30' required disabled/>
+                            <div class="input">
+                                <input id="admin-update-password" type="password" maxlength="30" required disabled/>
                             </div>
-                            <div class='label'>
-                                <label>Confirmar contraseña</label><span class='contrasena-alert'>No coinciden las contrenas</span>
+                            <div class="label">
+                                <label>Confirmar contraseña</label><span class="contrasena-alert">No coinciden las contrenas</span>
                             </div>
-                            <div class='input'>
-                                <input id='admin-update-confirm-password' type='password' maxlength='30' required disabled/>
+                            <div class="input">
+                                <input id="admin-update-confirm-password" type="password" maxlength="30" required disabled/>
                             </div>
-                            <div class='label'>
+                            <div class="label">
                                 <label>Rol</label>
                             </div>
-                            <div class='input'>
-                                <select id='admin-update-role'>"; ?>
+                            <div class="input">
+                                <select id="admin-update-role">'; ?>
                                     <?php
-                                        if($user_data['Role'] == 'admin') {
+                                        if($role == 'admin') {
                                             echo "
                                                 <option value='admin'>Administrador</option>
                                                 <option value='user'>Usuario</option>";
                                         }
-                                        elseif ($user_data['Role'] == 'user') {
+                                        elseif ($role == 'user') {
                                             echo "
                                             <option value='user'>Usuario</option>
                                             <option value='admin'>Administrador</option>";
                                         }
                                         ?>
-                                    <?php echo "
+                                    <?php echo '
                                 </select>
                             </div>
-                            <div class='input-submit-add'>
-                                <input type='submit' value='Actualizar'/>
+                            <div class="input-submit-add">
+                                <input type="submit" value="Actualizar"/>
                             </div>
                         </form>
-                </div> "; 
+                </div> '; 
             }
         ?>
     </main>
